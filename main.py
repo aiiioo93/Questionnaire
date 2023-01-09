@@ -1,15 +1,23 @@
-questions = ["Quel est votre prénom?", "Quel est votre âge?", "Quel est votre ville de résidence?"]
-réponses = []
+# Initialisation de la liste des questions
+questions = []
 
-# Boucle qui parcourt les questions
+# Boucle qui demande à l'utilisateur de saisir les questions
+while True:
+  question = input("Saisissez une question (ou tapez 'q' pour quitter): ")
+  if question.lower() == 'q':
+    break
+  questions.append(question)
+
+# Initialisation de la liste des réponses
+réponses = {}
+
+# Boucle qui parcourt les questions et enregistre les réponses de l'utilisateur
 for question in questions:
-  # Affichage de la question
   print(question)
-  # Enregistrement de la réponse de l'utilisateur
   réponse = input()
-  réponses.append(réponse)
+  réponses[question] = réponse
 
 # Affichage des réponses
 print("Voici vos réponses:")
-for i, réponse in enumerate(réponses):
-  print(f"Réponse à la question {i+1}: {réponse}")
+for question, réponse in réponses.items():
+  print(f"Réponse à la question '{question}': {réponse}")
